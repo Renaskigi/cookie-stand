@@ -7,14 +7,14 @@ const storePDXAirport = {
     avgCookiesPerCust: 6.3,
     storeCookiesPerDay: [],
     totalPDXSales: 0,
-    operatingHours: ['6am: ', '7am:', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: '],
+    operatingHours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', 'Total for the day: '],
     rndmCustHr: function() {
-        let min = Math.ceil(this.minHrlyCust);
-        let max = Math.floor(this.maxHrlyCust);
+        const min = Math.ceil(this.minHrlyCust);
+        const max = Math.floor(this.maxHrlyCust);
         return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is exclusive and the minimum is inclusive
     },
     cookiesPerHr: function() {
-        let cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
+        const cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
         return cookiesPerHr;
     },
     fifteenhr: function() {
@@ -22,12 +22,13 @@ const storePDXAirport = {
             this.storeCookiesPerDay.push(this.cookiesPerHr());
             this.totalPDXSales += this.storeCookiesPerDay[i];
         }
+        this.storeCookiesPerDay.push(this.totalPDXSales);
         return this.storeCookiesPerDay;
     },
-    createLi: function () {
-        for (let i = 0; i < 13; i++) {
+    renderLi: function () {
+        for (let i = 0; i < 14; i++) {
             const listItem = document.createElement('li');
-            listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i];
+            listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i] + ' cookies';
             const ul = document.getElementById('pdx');
             ul.appendChild (listItem);
         }
@@ -37,7 +38,7 @@ const storePDXAirport = {
 storePDXAirport.rndmCustHr();
 storePDXAirport.cookiesPerHr();
 storePDXAirport.fifteenhr();
-storePDXAirport.createLi();
+storePDXAirport.renderLi();
 
 const storePioneerSquare = {
     minHrlyCust: 3,
@@ -45,26 +46,28 @@ const storePioneerSquare = {
     avgCookiesPerCust: 1.2,
     storeCookiesPerDay: [],
     totalPioneerSales: 0,
+    operatingHours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', 'Total for the day: '],
     rndmCustHr: function() {
-        let min = Math.ceil(this.minHrlyCust);
-        let max = Math.floor(this.maxHrlyCust);
+        const min = Math.ceil(this.minHrlyCust);
+        const max = Math.floor(this.maxHrlyCust);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     cookiesPerHr: function() {
-        let cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
+        const cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
         return cookiesPerHr;
     },
     fifteenhr: function() {
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 13; i++) {
             this.storeCookiesPerDay.push(this.cookiesPerHr());
             this.totalPioneerSales += this.storeCookiesPerDay[i];
         }
+        this.storeCookiesPerDay.push(this.totalPioneerSales);
         return this.storeCookiesPerDay;
     },
-    createLi: function () {
-        for (let i = 0; i < 15; i++) {
+    renderLi: function () {
+        for (let i = 0; i < 14; i++) {
             const listItem = document.createElement('li');
-            listItem.textContent = this.storeCookiesPerDay[i];
+            listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i] + ' cookies';
             const ul = document.getElementById('pioneer');
             ul.appendChild (listItem);
         }
@@ -75,7 +78,7 @@ const storePioneerSquare = {
 storePioneerSquare.rndmCustHr();
 storePioneerSquare.cookiesPerHr();
 storePioneerSquare.fifteenhr();
-storePioneerSquare.createLi();
+storePioneerSquare.renderLi();
 
 const storePowells = {
     minHrlyCust: 11,
@@ -83,26 +86,28 @@ const storePowells = {
     avgCookiesPerCust: 3.7,
     storeCookiesPerDay: [],
     totalPowellSales: 0,
+    operatingHours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', 'Total for the day: '],
     rndmCustHr: function() {
-        let min = Math.ceil(this.minHrlyCust);
-        let max = Math.floor(this.maxHrlyCust);
+        const min = Math.ceil(this.minHrlyCust);
+        const max = Math.floor(this.maxHrlyCust);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     cookiesPerHr: function() {
-        let cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
+        const cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
         return cookiesPerHr;
     },
     fifteenhr: function() {
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 13; i++) {
             this.storeCookiesPerDay.push(this.cookiesPerHr());
             this.totalPowellSales += this.storeCookiesPerDay[i];
         }
+        this.storeCookiesPerDay.push(this.totalPowellSales);
         return this.storeCookiesPerDay;
     },
-    createLi: function () {
-        for (let i = 0; i < 15; i++) {
+    renderLi: function () {
+        for (let i = 0; i < 14; i++) {
             const listItem = document.createElement('li');
-            listItem.textContent = this.storeCookiesPerDay[i];
+            listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i] + ' cookies';
             const ul = document.getElementById('powells');
             ul.appendChild (listItem);
         }
@@ -112,34 +117,35 @@ const storePowells = {
 storePowells.rndmCustHr();
 storePowells.cookiesPerHr();
 storePowells.fifteenhr();
-storePowells.createLi();
+storePowells.renderLi();
 
 const storeStJohns = {
     minHrlyCust: 20,
     maxHrlyCust: 38,
     avgCookiesPerCust: 2.3,
     storeCookiesPerDay: [],
-    totalStJohnsSales: 0,
+    totalStJohnsSales: 0,operatingHours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', 'Total for the day: '],
     rndmCustHr: function() {
-        let min = Math.ceil(this.minHrlyCust);
-        let max = Math.floor(this.maxHrlyCust);
+        const min = Math.ceil(this.minHrlyCust);
+        const max = Math.floor(this.maxHrlyCust);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     cookiesPerHr: function() {
-        let cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
+        const cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
         return cookiesPerHr;
     },
     fifteenhr: function() {
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 13; i++) {
             this.storeCookiesPerDay.push(this.cookiesPerHr());
             this.totalStJohnsSales += this.storeCookiesPerDay[i];
         }
+        this.storeCookiesPerDay.push(this.totalStJohnsSales);
         return this.storeCookiesPerDay;
     },
-    createLi: function () {
-        for (let i = 0; i < 15; i++) {
+    renderLi: function () {
+        for (let i = 0; i < 14; i++) {
             const listItem = document.createElement('li');
-            listItem.textContent = this.storeCookiesPerDay[i];
+            listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i] + ' cookies';
             const ul = document.getElementById('stjohns');
             ul.appendChild (listItem);
         }
@@ -149,7 +155,7 @@ const storeStJohns = {
 storeStJohns.rndmCustHr();
 storeStJohns.cookiesPerHr();
 storeStJohns.fifteenhr();
-storeStJohns.createLi();
+storeStJohns.renderLi();
 
 const storeWaterfront = {
     minHrlyCust: 2,
@@ -157,26 +163,28 @@ const storeWaterfront = {
     avgCookiesPerCust: 4.6,
     storeCookiesPerDay: [],
     totalWaterfrontSales: 0,
+    operatingHours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', 'Total for the day: '],
     rndmCustHr: function() {
-        let min = Math.ceil(this.minHrlyCust);
-        let max = Math.floor(this.maxHrlyCust);
+        const min = Math.ceil(this.minHrlyCust);
+        const max = Math.floor(this.maxHrlyCust);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     cookiesPerHr: function() {
-        let cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
+        const cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
         return cookiesPerHr;
     },
     fifteenhr: function() {
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 13; i++) {
             this.storeCookiesPerDay.push(this.cookiesPerHr());
             this.totalWaterfrontSales += this.storeCookiesPerDay[i];
         }
+        this.storeCookiesPerDay.push(this.totalWaterfrontSales);
         return this.storeCookiesPerDay;
     },
-    createLi: function () {
-        for (let i = 0; i < 15; i++) {
+    renderLi: function () {
+        for (let i = 0; i < 14; i++) {
             const listItem = document.createElement('li');
-            listItem.textContent = this.storeCookiesPerDay[i];
+            listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i] + ' cookies';
             const ul = document.getElementById('waterfront');
             ul.appendChild (listItem);
         }
@@ -185,4 +193,4 @@ const storeWaterfront = {
 storeWaterfront.rndmCustHr();
 storeWaterfront.cookiesPerHr();
 storeWaterfront.fifteenhr();
-storeWaterfront.createLi();
+storeWaterfront.renderLi();
