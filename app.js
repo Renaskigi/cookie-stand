@@ -7,6 +7,7 @@ const storePDXAirport = {
     avgCookiesPerCust: 6.3,
     storeCookiesPerDay: [],
     totalPDXSales: 0,
+    operatingHours: ['6am: ', '7am:', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: '],
     rndmCustHr: function() {
         let min = Math.ceil(this.minHrlyCust);
         let max = Math.floor(this.maxHrlyCust);
@@ -17,16 +18,16 @@ const storePDXAirport = {
         return cookiesPerHr;
     },
     fifteenhr: function() {
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 13; i++) {
             this.storeCookiesPerDay.push(this.cookiesPerHr());
             this.totalPDXSales += this.storeCookiesPerDay[i];
         }
         return this.storeCookiesPerDay;
     },
     createLi: function () {
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 13; i++) {
             const listItem = document.createElement('li');
-            listItem.textContent = this.storeCookiesPerDay[i];
+            listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i];
             const ul = document.getElementById('pdx');
             ul.appendChild (listItem);
         }
