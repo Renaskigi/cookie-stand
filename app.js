@@ -24,8 +24,8 @@ const storePDXAirport = {
         return this.storeCookiesPerDay;
     },
     createLi: function () {
-        const listItem = document.createElement('li');
         for (let i = 0; i < 15; i++) {
+            const listItem = document.createElement('li');
             listItem.textContent = this.storeCookiesPerDay[i];
             const ul = document.getElementById('pdx');
             ul.appendChild (listItem);
@@ -61,10 +61,12 @@ const storePioneerSquare = {
         return this.storeCookiesPerDay;
     },
     createLi: function () {
-        const listItem = document.createElement('li');
-        listItem.textContent = this.storeCookiesPerDay[0];
-        const ul = document.getElementById('pioneer');
-        ul.appendChild (listItem);
+        for (let i = 0; i < 15; i++) {
+            const listItem = document.createElement('li');
+            listItem.textContent = this.storeCookiesPerDay[i];
+            const ul = document.getElementById('pioneer');
+            ul.appendChild (listItem);
+        }
     }
 
 };
@@ -97,10 +99,12 @@ const storePowells = {
         return this.storeCookiesPerDay;
     },
     createLi: function () {
-        const listItem = document.createElement('li');
-        listItem.textContent = this.storeCookiesPerDay[0];
-        const ul = document.getElementById('powells');
-        ul.appendChild (listItem);
+        for (let i = 0; i < 15; i++) {
+            const listItem = document.createElement('li');
+            listItem.textContent = this.storeCookiesPerDay[i];
+            const ul = document.getElementById('powells');
+            ul.appendChild (listItem);
+        }
     }
 };
 
@@ -132,10 +136,12 @@ const storeStJohns = {
         return this.storeCookiesPerDay;
     },
     createLi: function () {
-        const listItem = document.createElement('li');
-        listItem.textContent = this.storeCookiesPerDay[0];
-        const ul = document.getElementById('stjohns');
-        ul.appendChild (listItem);
+        for (let i = 0; i < 15; i++) {
+            const listItem = document.createElement('li');
+            listItem.textContent = this.storeCookiesPerDay[i];
+            const ul = document.getElementById('stjohns');
+            ul.appendChild (listItem);
+        }
     }
 };
 
@@ -167,10 +173,12 @@ const storeWaterfront = {
         return this.storeCookiesPerDay;
     },
     createLi: function () {
-        const listItem = document.createElement('li');
-        listItem.textContent = this.storeCookiesPerDay[0];
-        const ul = document.getElementById('waterfront');
-        ul.appendChild (listItem);
+        for (let i = 0; i < 15; i++) {
+            const listItem = document.createElement('li');
+            listItem.textContent = this.storeCookiesPerDay[i];
+            const ul = document.getElementById('waterfront');
+            ul.appendChild (listItem);
+        }
     }
 };
 storeWaterfront.rndmCustHr();
