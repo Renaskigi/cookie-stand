@@ -1,26 +1,25 @@
 'use strict';
 const times = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total'];
 //Create Store Objects for Daily Sales Projections
-function Store (name, minHrlyCust,maxHrlyCust,aveCookiesPerCust,storeCookiesPerDay,totalSales,operatingHours, elementID) {
+function Store (name, minHrlyCust,maxHrlyCust,aveCookiesPerCust,elementID) {
     this.name = name;
     this.minHrlyCust = minHrlyCust;
     this.maxHrlyCust = maxHrlyCust;
     this.aveCookiesPerCust = aveCookiesPerCust;
-    this.storeCookiesPerDay = storeCookiesPerDay;
-    this.totalSales = totalSales;
-    this.operatingHours = operatingHours;
+    this.storeCookiesPerDay = [];
+    this.totalSales =0;
     this.elementID = elementID;
 }
 
-const pDXAirport = new Store ('PDX Airport', 23, 65, 6.3, [], 0, times, 'pdx');
+const pDXAirport = new Store ('PDX Airport', 23, 65, 6.3, 'pdx');
 
-const pioneerSquare = new Store ('Pioneer Square', 3, 24, 1.2, [], 0, times, 'pioneer');
+const pioneerSquare = new Store ('Pioneer Square', 3, 24, 1.2, 'pioneer');
 
-const powells = new Store ('Powells', 11, 38, 3.7, [], 0, times, 'powells');
+const powells = new Store ('Powells', 11, 38, 3.7, 'powells');
 
-const stJohns = new Store ('St. John\'s', 20, 38, 2.4, [], 0, times, 'stjohns');
+const stJohns = new Store ('St. John\'s', 20, 38, 2.4, 'stjohns');
 
-const waterfront = new Store ('Waterfront', 2, 16, 4.6, [], 0, times, 'waterfront');
+const waterfront = new Store ('Waterfront', 2, 16, 4.6, 'waterfront');
 
 Store.prototype.rndmCustHr = function() {
     const min = Math.ceil(this.minHrlyCust);
