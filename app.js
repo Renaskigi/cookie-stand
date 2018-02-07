@@ -55,7 +55,10 @@ function headCreator () {
     }
 };
 
-headCreator();
+function rowCreator () {
+    for (let i = 0; i < )
+}
+// headCreator();
 //     for (let i = 0; i < 16; i++) {
 //         const listItem = document.createElement('');
 //         listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i] + ' cookies';
