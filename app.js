@@ -12,15 +12,15 @@ function Store (name, minHrlyCust,maxHrlyCust,aveCookiesPerCust,storeCookiesPerD
     this.elementID = elementID;
 }
 
-const pDXAirport = new Store ('PDX Airport', 23, 65, 6.3, [], 0, ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total'], 'pdx');
+const pDXAirport = new Store ('PDX Airport', 23, 65, 6.3, [], 0, times, 'pdx');
 
-const pioneerSquare = new Store ('Pioneer Square', 3, 24, 1.2, [], 0, ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total'], 'pioneer');
+const pioneerSquare = new Store ('Pioneer Square', 3, 24, 1.2, [], 0, times, 'pioneer');
 
-const powells = new Store ('Powells', 11, 38, 3.7, [], 0, ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total'], 'powells');
+const powells = new Store ('Powells', 11, 38, 3.7, [], 0, times, 'powells');
 
-const stJohns = new Store ('St. John\'s', 20, 38, 2.4, [], 0, ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total'], 'stjohns');
+const stJohns = new Store ('St. John\'s', 20, 38, 2.4, [], 0, times, 'stjohns');
 
-const waterfront = new Store ('Waterfront', 2, 16, 4.6, [], 0, ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total'], 'waterfront');
+const waterfront = new Store ('Waterfront', 2, 16, 4.6, [], 0, times, 'waterfront');
 
 Store.prototype.rndmCustHr = function() {
     const min = Math.ceil(this.minHrlyCust);
@@ -42,55 +42,44 @@ Store.prototype.fifteenhr = function() {
     return this.storeCookiesPerDay;
 };
 
-// Store.prototype.renderRow = function () {
-//     const tbody = document.
-
+//Create Table Head Row
 
 function headCreator () {
     for (let i = 0; i < times.length; i++) {
         const tr = document.getElementById('headBoxes');
         const th = document.createElement('th');
-        th.textContent = [times[i]];
+        th.textContent = times[i];
         tr.appendChild(th);
     }
 };
 
-function rowCreator () {
-    for (let i = 0; i < )
-}
-// headCreator();
-//     for (let i = 0; i < 16; i++) {
-//         const listItem = document.createElement('');
-//         listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i] + ' cookies';
-//         const ul = document.getElementById(this.elementID);
-//         ul.appendChild (listItem);
-//     }
-// };
+headCreator();
 
-// const storeNames = [pDXAirport, pioneerSquare, powells, stJohns, waterfront];
+//Create Table Main Rows
 
-// for (let i = 0; i < storeNames.length; i++ ) {
-//     storeNames[i].rndmCustHr();
-//     storeNames[i].cookiesPerHr();
-//     storeNames[i].fifteenhr();
-//     storeNames[i].renderLi();
-// };
+Store.prototype.rowCreator = function () {
+    const tbod = document.getElementById('bodyBoxes');
+    const tr = document.createElement('tr');
+    const storeTitle = document.createElement('td');
+    storeTitle.textContent = this.name;
+    tr.appendChild(storeTitle);
+    for (let i = 0; i < times.length; i++) {
+        const td = document.createElement('td');
+        td.textContent = this.storeCookiesPerDay[i];
+        tr.appendChild(td);
+        tbod.appendChild(tr);
+    }
+};
 
-// Store.prototype.renderRow = function () {
-//     // find the parent
-//     const table = document.querySelector('#tablehere');
+//Create Footer Row
 
-//     // create the element, add content
-//     const tHead = document.createElement('thead');
-//     const 
-//     titleTd.textContent = this.title;
-//     authorTd.textContent = this.author;
-//     hasReadTd.textContent = this.hasRead; 
+//Call Methods
+const storeNames = [pDXAirport, pioneerSquare, powells, stJohns, waterfront];
 
-//     // append to parent
-//     table.appendChild(tHead);
-//     tr.appendChild(authorTd);
-//     tr.appendChild(hasReadTd);
+for (let i = 0; i < storeNames.length; i++ ) {
+    storeNames[i].rndmCustHr();
+    storeNames[i].cookiesPerHr();
+    storeNames[i].fifteenhr();
+    storeNames[i].rowCreator();
+};
 
-//     tbody.appendChild(tr);
-// };

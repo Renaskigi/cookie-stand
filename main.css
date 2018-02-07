@@ -1,1 +1,4 @@
-#headBoxes {border: 1px solid black;}
+#headBoxes, #bodyBoxes, #footBoxes {
+    border: black 1px solid;
+    /* display: block; */
+}
