@@ -1,0 +1,50 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>SalmonCookies></title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <section>
+            <table id = "tablehere">
+                <thead>Pat's Salmon Cookies<br> Store Projections
+                    <tr id = "headBoxes">
+                        <th>Store<br>Location
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id = "bodyBoxes">
+                    <td id = "dataCells">
+                    </td>
+                </tbody>
+                <tfoot id = "footBoxes">
+                    <tr>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+        <section>
+            <form>
+                    <fieldset>
+                        <legend>New Store Creator</legend>
+
+                        <label for="newStoreName">Store Name</label>
+                        <input type="text" id="newStoreName" name="newStoreName" maxlength="20" required placeholder="New Store Name">
+        
+                        <label for="minCust">Minimum Customers</label>
+                        <input type="number" id="minCust" name="minCust" maxlength="3" required placeholder="Minimum Customers">
+        
+                        <label for="maxCust">Maximum Customers</label>
+                        <input type="number" id="maxCust" name="maxCust" maxlength="3" required placeholder="Maximum Customers">
+
+                        <label for="avgCookiesPerCust">Avg Cookies/Cust</label>
+                        <input type="number" id="avgCookiesPerCust" name="avgCookiesPerCust" maxlength="2" required placeholder="Avg Cookies/Cust">
+        
+                        <button type="submit">Create New Store</button>
+                    </fieldset>
+                </form>
+        </section>     
+    </body>
+    <script src = app.js>
+        </script>
+</html>

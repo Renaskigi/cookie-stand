@@ -1,196 +1,101 @@
 'use strict';
 
+const times = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total'];
+
+const form = document.querySelector('form');
+
 //Create Store Objects for Daily Sales Projections
-const storePDXAirport = {
-    minHrlyCust: 23,
-    maxHrlyCust: 65,
-    avgCookiesPerCust: 6.3,
-    storeCookiesPerDay: [],
-    totalPDXSales: 0,
-    operatingHours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', 'Total for the day: '],
-    rndmCustHr: function() {
-        const min = Math.ceil(this.minHrlyCust);
-        const max = Math.floor(this.maxHrlyCust);
-        return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is exclusive and the minimum is inclusive
-    },
-    cookiesPerHr: function() {
-        const cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
-        return cookiesPerHr;
-    },
-    fifteenhr: function() {
-        for (let i = 0; i < 13; i++) {
-            this.storeCookiesPerDay.push(this.cookiesPerHr());
-            this.totalPDXSales += this.storeCookiesPerDay[i];
-        }
-        this.storeCookiesPerDay.push(this.totalPDXSales);
-        return this.storeCookiesPerDay;
-    },
-    renderLi: function () {
-        for (let i = 0; i < 14; i++) {
-            const listItem = document.createElement('li');
-            listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i] + ' cookies';
-            const ul = document.getElementById('pdx');
-            ul.appendChild (listItem);
-        }
+function Store (name, minHrlyCust,maxHrlyCust,aveCookiesPerCust) {
+    this.name = name;
+    this.minHrlyCust = minHrlyCust;
+    this.maxHrlyCust = maxHrlyCust;
+    this.aveCookiesPerCust = aveCookiesPerCust;
+    this.storeCookiesPerDay = [];
+    this.totalSales = 0;
+}
+
+const pDXAirport = new Store ('PDX Airport', 23, 65, 6.3);
+
+const pioneerSquare = new Store ('Pioneer Square', 3, 24, 1.2);
+
+const powells = new Store ('Powells', 11, 38, 3.7);
+
+const stJohns = new Store ('St. John\'s', 20, 38, 2.4);
+
+const waterfront = new Store ('Waterfront', 2, 16, 4.6);
+
+Store.prototype.rndmCustHr = function() {
+    const min = Math.ceil(this.minHrlyCust);
+    const max = Math.floor(this.maxHrlyCust);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+Store.prototype.cookiesPerHr = function() {
+    const cookiesPerHr = Math.floor(this.aveCookiesPerCust * this.rndmCustHr());
+    return cookiesPerHr;
+};
+
+Store.prototype.fifteenhr = function() {
+    for (let i = 0; i < 15; i++) {
+        this.storeCookiesPerDay.push(this.cookiesPerHr());
+        this.totalSales += this.storeCookiesPerDay[i];
+    }
+    this.storeCookiesPerDay.push(this.totalSales);
+    return this.storeCookiesPerDay;
+};
+
+//Create Table Head Row
+
+function headCreator () {
+    for (let i = 0; i < times.length; i++) {
+        const tr = document.getElementById('headBoxes');
+        const th = document.createElement('th');
+        th.textContent = times[i];
+        tr.appendChild(th);
     }
 };
 
-storePDXAirport.rndmCustHr();
-storePDXAirport.cookiesPerHr();
-storePDXAirport.fifteenhr();
-storePDXAirport.renderLi();
+headCreator();
 
-const storePioneerSquare = {
-    minHrlyCust: 3,
-    maxHrlyCust: 24,
-    avgCookiesPerCust: 1.2,
-    storeCookiesPerDay: [],
-    totalPioneerSales: 0,
-    operatingHours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', 'Total for the day: '],
-    rndmCustHr: function() {
-        const min = Math.ceil(this.minHrlyCust);
-        const max = Math.floor(this.maxHrlyCust);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    },
-    cookiesPerHr: function() {
-        const cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
-        return cookiesPerHr;
-    },
-    fifteenhr: function() {
-        for (let i = 0; i < 13; i++) {
-            this.storeCookiesPerDay.push(this.cookiesPerHr());
-            this.totalPioneerSales += this.storeCookiesPerDay[i];
-        }
-        this.storeCookiesPerDay.push(this.totalPioneerSales);
-        return this.storeCookiesPerDay;
-    },
-    renderLi: function () {
-        for (let i = 0; i < 14; i++) {
-            const listItem = document.createElement('li');
-            listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i] + ' cookies';
-            const ul = document.getElementById('pioneer');
-            ul.appendChild (listItem);
-        }
-    }
+//Create Table Main Rows
 
-};
-
-storePioneerSquare.rndmCustHr();
-storePioneerSquare.cookiesPerHr();
-storePioneerSquare.fifteenhr();
-storePioneerSquare.renderLi();
-
-const storePowells = {
-    minHrlyCust: 11,
-    maxHrlyCust: 38,
-    avgCookiesPerCust: 3.7,
-    storeCookiesPerDay: [],
-    totalPowellSales: 0,
-    operatingHours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', 'Total for the day: '],
-    rndmCustHr: function() {
-        const min = Math.ceil(this.minHrlyCust);
-        const max = Math.floor(this.maxHrlyCust);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    },
-    cookiesPerHr: function() {
-        const cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
-        return cookiesPerHr;
-    },
-    fifteenhr: function() {
-        for (let i = 0; i < 13; i++) {
-            this.storeCookiesPerDay.push(this.cookiesPerHr());
-            this.totalPowellSales += this.storeCookiesPerDay[i];
-        }
-        this.storeCookiesPerDay.push(this.totalPowellSales);
-        return this.storeCookiesPerDay;
-    },
-    renderLi: function () {
-        for (let i = 0; i < 14; i++) {
-            const listItem = document.createElement('li');
-            listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i] + ' cookies';
-            const ul = document.getElementById('powells');
-            ul.appendChild (listItem);
-        }
+Store.prototype.rowCreator = function () {
+    const tbod = document.getElementById('bodyBoxes');
+    const tr = document.createElement('tr');
+    const storeTitle = document.createElement('td');
+    storeTitle.textContent = this.name;
+    tr.appendChild(storeTitle);
+    for (let i = 0; i < times.length; i++) {
+        const td = document.createElement('td');
+        td.textContent = this.storeCookiesPerDay[i];
+        tr.appendChild(td);
+        tbod.appendChild(tr);
     }
 };
 
-storePowells.rndmCustHr();
-storePowells.cookiesPerHr();
-storePowells.fifteenhr();
-storePowells.renderLi();
+//Create Footer Row
 
-const storeStJohns = {
-    minHrlyCust: 20,
-    maxHrlyCust: 38,
-    avgCookiesPerCust: 2.3,
-    storeCookiesPerDay: [],
-    totalStJohnsSales: 0,operatingHours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', 'Total for the day: '],
-    rndmCustHr: function() {
-        const min = Math.ceil(this.minHrlyCust);
-        const max = Math.floor(this.maxHrlyCust);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    },
-    cookiesPerHr: function() {
-        const cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
-        return cookiesPerHr;
-    },
-    fifteenhr: function() {
-        for (let i = 0; i < 13; i++) {
-            this.storeCookiesPerDay.push(this.cookiesPerHr());
-            this.totalStJohnsSales += this.storeCookiesPerDay[i];
-        }
-        this.storeCookiesPerDay.push(this.totalStJohnsSales);
-        return this.storeCookiesPerDay;
-    },
-    renderLi: function () {
-        for (let i = 0; i < 14; i++) {
-            const listItem = document.createElement('li');
-            listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i] + ' cookies';
-            const ul = document.getElementById('stjohns');
-            ul.appendChild (listItem);
-        }
-    }
+//Call Methods
+const storeNames = [pDXAirport, pioneerSquare, powells, stJohns, waterfront];
+
+for (let i = 0; i < storeNames.length; i++ ) {
+    storeNames[i].rndmCustHr();
+    storeNames[i].cookiesPerHr();
+    storeNames[i].fifteenhr();
+    storeNames[i].rowCreator();
 };
 
-storeStJohns.rndmCustHr();
-storeStJohns.cookiesPerHr();
-storeStJohns.fifteenhr();
-storeStJohns.renderLi();
-
-const storeWaterfront = {
-    minHrlyCust: 2,
-    maxHrlyCust: 16,
-    avgCookiesPerCust: 4.6,
-    storeCookiesPerDay: [],
-    totalWaterfrontSales: 0,
-    operatingHours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', 'Total for the day: '],
-    rndmCustHr: function() {
-        const min = Math.ceil(this.minHrlyCust);
-        const max = Math.floor(this.maxHrlyCust);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    },
-    cookiesPerHr: function() {
-        const cookiesPerHr = Math.floor(this.avgCookiesPerCust * this.rndmCustHr());
-        return cookiesPerHr;
-    },
-    fifteenhr: function() {
-        for (let i = 0; i < 13; i++) {
-            this.storeCookiesPerDay.push(this.cookiesPerHr());
-            this.totalWaterfrontSales += this.storeCookiesPerDay[i];
-        }
-        this.storeCookiesPerDay.push(this.totalWaterfrontSales);
-        return this.storeCookiesPerDay;
-    },
-    renderLi: function () {
-        for (let i = 0; i < 14; i++) {
-            const listItem = document.createElement('li');
-            listItem.textContent = this.operatingHours[i] + this.storeCookiesPerDay[i] + ' cookies';
-            const ul = document.getElementById('waterfront');
-            ul.appendChild (listItem);
-        }
-    }
-};
-storeWaterfront.rndmCustHr();
-storeWaterfront.cookiesPerHr();
-storeWaterfront.fifteenhr();
-storeWaterfront.renderLi();
+form.addEventListener('submit', function () {
+    event.preventDefault();
+    const newStoreName = document.getElementById('newStoreName').value;
+    const minCust = document.getElementById('minCust').value;
+    const maxCust = document.getElementById('maxCust').value;
+    const avgCookiesPerCust = document.getElementById('avgCookiesPerCust').value;
+    console.log('the new store name is', this.newStoreName.value);
+    console.log('the minimum customers is', this.minCust.value);
+    const newStore = new Store (newStoreName, minCust, maxCust, avgCookiesPerCust);
+    newStore.rndmCustHr();
+    newStore.cookiesPerHr();
+    newStore.fifteenhr();
+    newStore.rowCreator();
+});

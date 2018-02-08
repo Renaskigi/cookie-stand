@@ -1,0 +1,15 @@
+/* * {
+    border: red 1px solid;
+    display: block; 
+  } */
+section {
+    width: 50%
+}
+tHead {
+    text-align : center;
+    font-weight: bold
+}
+form {
+    width: 30%;
+    float: right;
+}
