@@ -84,3 +84,33 @@ for (let i = 0; i < storeNames.length; i++ ) {
     storeNames[i].rowCreator();
 };
 
+// form.addEventListener('submit', function () {
+//     event.preventDefault();
+//     console.log('consoles on submit!');
+
+//     // x - get the data from the form
+//     const title = document.getElementById('title').value;
+//     console.log('the title they wrote', title);
+//     console.log(this.title.value);
+
+//     const content = this.text.value;
+//     const tags = this.tags;
+//     console.log('content', content);
+//     console.log('tags', tags);
+
+//     // x - create the
+//     const newPost = new Post (title, content);
+//     newPost.publish();
+// });
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function () {
+    event.preventDefault();
+    const newStoreName = document.getElementById('newStoreName');
+    const minCust = document.getElementById('minCust');
+    const maxCust = document.getElementById('maxCust');
+    const avgCookiesPerCust = document.getElementById('avgCookiesPerCust');
+    console.log('the new store name is', this.newStoreName.value);
+    console.log('the minimum customers is', this.minCust.value);
+});
