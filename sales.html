@@ -1,50 +1,138 @@
 <!Doctype html>
 <html>
+    <!-- Header -->
+    <!-- <header id="header" class="alt">
+        <div class="inner">
+            <h1>Epilogue</h1>
+            <p>A free responsive site template by <a href="https://templated.co">TEMPLATED</a></p>
+        </div>
+    </header> -->
+    
     <head>
         <title>SalmonCookies></title>
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
         <link rel="stylesheet" href="main.css">
     </head>
+    
     <body>
-        <section>
-            <table id = "tablehere">
-                <thead>Pat's Salmon Cookies<br> Store Projections
-                    <tr id = "headBoxes">
-                        <th>Store<br>Location
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id = "bodyBoxes">
-                    <td id = "dataCells">
-                    </td>
-                </tbody>
-                <tfoot id = "footBoxes">
-                    <tr>
-                    </tr>
-                </tfoot>
-            </table>
-        </section>
-        <section>
-            <form>
-                    <fieldset>
-                        <legend>New Store Creator</legend>
+            <section>
+                <table id = "tablehere">
+                    <thead>Pat's Salmon Cookies<br> Store Projections
+                        <tr id = "headBoxes">
+                            <th>Store<br>Location
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id = "bodyBoxes">
+                        <td id = "dataCells">
+                        </td>
+                    </tbody>
+                    <tfoot id = "footBoxes">
+                        <tr>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+            <section>
+                <form>
+                        <fieldset>
+                            <legend>New Store Creator</legend>
+    
+                            <label for="newStoreName">Store Name</label>
+                            <input type="text" id="newStoreName" name="newStoreName" maxlength="20" required placeholder="New Store Name">
+            
+                            <label for="minCust">Minimum Customers</label>
+                            <input type="number" id="minCust" name="minCust" maxlength="3" required placeholder="Minimum Customers">
+            
+                            <label for="maxCust">Maximum Customers</label>
+                            <input type="number" id="maxCust" name="maxCust" maxlength="3" required placeholder="Maximum Customers">
+    
+                            <label for="avgCookiesPerCust">Avg Cookies/Cust</label>
+                            <input type="number" id="avgCookiesPerCust" name="avgCookiesPerCust" maxlength="2" required placeholder="Avg Cookies/Cust">
+            
+                            <button type="submit">Create New Store</button>
+                        </fieldset>
+                    </form>
+            </section>     
+        </body>
+        <script src = app.js>
+            </script>
+        <!-- <section class="main items">
+            <article class="item">
+                <header>
+                    <a href="#"><img src="images/pic01.jpg" alt="" /></a>
+                    <h3>Feugiat et faucibus</h3>
+                </header>
+                <p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare.</p>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </article>
+            <article class="item">
+                <header>
+                    <a href="#"><img src="images/pic02.jpg" alt="" /></a>
+                    <h3>Blandit adipiscing</h3>
+                </header>
+                <p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare.</p>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </article>
+            <article class="item">
+                <header>
+                    <a href="#"><img src="images/pic03.jpg" alt="" /></a>
+                    <h3>Lorem massa nulla</h3>
+                </header>
+                <p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare.</p>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </article>
+            <article class="item">
+                <header>
+                    <a href="#"><img src="images/pic04.jpg" alt="" /></a>
+                    <h3>Ipsum sed tempus</h3>
+                </header>
+                <p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare.</p>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </article>
+        </section> -->
 
-                        <label for="newStoreName">Store Name</label>
-                        <input type="text" id="newStoreName" name="newStoreName" maxlength="20" required placeholder="New Store Name">
-        
-                        <label for="minCust">Minimum Customers</label>
-                        <input type="number" id="minCust" name="minCust" maxlength="3" required placeholder="Minimum Customers">
-        
-                        <label for="maxCust">Maximum Customers</label>
-                        <input type="number" id="maxCust" name="maxCust" maxlength="3" required placeholder="Maximum Customers">
+    <!-- CTA -->
+        <!-- <section id="cta" class="main special">
+            <h2>Etiam veroeros lorem</h2>
+            <p>Phasellus ac augue ac magna auctor tempus proin<br />
+            accumsan lacus a nibh commodo in pellentesque dui<br />
+            in hac habitasse platea dictumst.</p>
+            <ul class="actions">
+                <li><a href="#" class="button big">Get Started</a></li>
+            </ul>
+        </section> --> --> -->
 
-                        <label for="avgCookiesPerCust">Avg Cookies/Cust</label>
-                        <input type="number" id="avgCookiesPerCust" name="avgCookiesPerCust" maxlength="2" required placeholder="Avg Cookies/Cust">
-        
-                        <button type="submit">Create New Store</button>
-                    </fieldset>
-                </form>
-        </section>     
-    </body>
-    <script src = app.js>
-        </script>
+        <!-- Main -->
+        <!--
+            <section id="main" class="main">
+                <header>
+                    <h2>Lorem ipsum dolor</h2>
+                </header>
+                <p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare. Etiam eget neque id metus gravida tristique ac quis erat. Aenean quis aliquet sem. Ut ut elementum sem. Suspendisse eleifend ut est non dapibus. Nulla porta, neque quis pretium sagittis, tortor lacus elementum metus, in imperdiet ante lorem vitae ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eget neque id metus gravida tristique ac quis erat. Aenean quis aliquet sem. Ut ut elementum sem. Suspendisse eleifend ut est non dapibus. Nulla porta, neque quis pretium sagittis, tortor lacus elementum metus, in imperdiet ante lorem vitae ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            </section>
+        -->
+
+        <!-- Footer -->
+            <!-- <footer id="footer">
+                <ul class="icons">
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <p class="copyright">&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+            </footer>
+
+    </div> -->
+
 </html>
