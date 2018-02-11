@@ -1,11 +1,20 @@
-* {
+* { 
+   
     border: blueviolet 1px solid;
+    background-color: salmon;
+    
 }
 th {
     border : 1px solid black;
     text-align : center;
     font-weight: bold;
     font-family: 'Indie Flower', cursive;
+}
+.gentext {
+    font-family: 'Times New Roman', Times, serif;
+}
+.datatext {
+    font-family: Arial, Helvetica, sans-serif;
 }
 .erdem {
     margin : 10px auto;
