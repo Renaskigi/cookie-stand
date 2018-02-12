@@ -1,15 +1,98 @@
-/* * {
-    border: red 1px solid;
-    display: block; 
-  } */
-section {
-    width: 50%
+* { 
+    background-color: salmon;   
 }
-tHead {
+th {
+    border: blueviolet 1px solid;
+    border : 1px solid black;
     text-align : center;
-    font-weight: bold
+    font-weight: bold;
+    font-family: 'Indie Flower', cursive;
+    color:blueviolet;
 }
-form {
-    width: 30%;
-    float: right;
+.gentext {
+    font-family: 'Times New Roman', Times, serif;
+    color:green;
+    text-align: center;
+    font-size: 250%;
+}
+.centered {
+    margin-left: 25%;
+  }
+.datatext {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+.newStoreMaker {
+    border: blueviolet 1px solid;
+    margin : 10px auto;
+    width : 90%
+}
+
+.smallerIcons {
+    max-width: 10%;
+    max-height: 10%;
+    display: inline-block;
+}
+
+table {
+    border: blueviolet 1px solid;
+    margin : 10px auto;
+    width : 90%
+}
+.tableheader {
+    border: blueviolet 1px solid;
+    text-align : center;
+    margin : 10px auto;
+    width : 90%;
+    font-weight : bold; 
+    font-size : 150%;
+}
+#famPic {
+    width:300px;
+    height:200px;
+}
+.nav {
+    text-align: center;
+    display: block;
+}
+ul {
+    display: flex;
+    justify-content: space-around;
+}
+ul li {
+    display: inline-block;
+    list-style: none;
+}
+#mainHeader {
+    font-family: 'Indie Flower', cursive;
+    font-size: 500%;
+    text-align: center;
+    font-weight: bold;
+}
+#familyBlurb {
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    float: center;
+}
+#cutter {
+text-align: center;
+margin-left: 10%;
+margin-right: 5%;
+}
+#shirt {
+text-align: center;
+margin-left: 15%;
+margin-right: 10%;
+}
+#fish {
+text-align: center;
+margin-right: 8%;
+margin-left: 10%;
+}
+.footerFotos {
+    max-width: 10%;
+    max-height: 10%;
+}
+footer {
+    text-align: center;
 }
