@@ -1,10 +1,8 @@
 * { 
-   
-    border: blueviolet 1px solid;
-    background-color: salmon;
-    
+    background-color: salmon;   
 }
 th {
+    border: blueviolet 1px solid;
     border : 1px solid black;
     text-align : center;
     font-weight: bold;
@@ -13,29 +11,41 @@ th {
 }
 .gentext {
     font-family: 'Times New Roman', Times, serif;
-    color: green;
+    color:green;
+    text-align: center;
+    font-size: 250%;
 }
+.centered {
+    margin-left: 25%;
+  }
 .datatext {
     font-family: Arial, Helvetica, sans-serif;
     color: black;
 }
 .newStoreMaker {
+    border: blueviolet 1px solid;
     margin : 10px auto;
     width : 90%
 }
+
+.smallerIcons {
+    max-width: 10%;
+    max-height: 10%;
+    display: inline-block;
+}
+
 table {
+    border: blueviolet 1px solid;
     margin : 10px auto;
     width : 90%
 }
 .tableheader {
+    border: blueviolet 1px solid;
     text-align : center;
     margin : 10px auto;
     width : 90%;
     font-weight : bold; 
     font-size : 150%;
-}
-.pics {
-
 }
 #famPic {
     width:300px;
@@ -58,4 +68,31 @@ ul li {
     font-size: 500%;
     text-align: center;
     font-weight: bold;
+}
+#familyBlurb {
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    float: center;
+}
+#cutter {
+text-align: center;
+margin-left: 10%;
+margin-right: 5%;
+}
+#shirt {
+text-align: center;
+margin-left: 15%;
+margin-right: 10%;
+}
+#fish {
+text-align: center;
+margin-right: 8%;
+margin-left: 10%;
+}
+.footerFotos {
+    max-width: 10%;
+    max-height: 10%;
+}
+footer {
+    text-align: center;
 }
